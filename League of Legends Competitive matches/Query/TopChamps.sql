@@ -1,61 +1,200 @@
--- Qual o top 5 dos personagens utilizado em cada posição?
+-- Qual o top 5 dos personagens utilizado em cada posição em 2015?
 
-select blueTopChamp, count(blueTopChamp) as BlueTop_Favorito
-from matchinfo
-group by blueTopChamp
-order by BlueTop_Favorito DESC 
+SELECT  
+    topChamp as topFavorito,
+     COUNT(topChamp) AS countTop
+FROM
+    (SELECT year, blueTopChamp AS topChamp FROM matchinfo where year like '2015'
+     UNION ALL
+     SELECT year, redTopChamp AS topChamp FROM matchinfo where year like '2015'
+    ) as redBlueTop
+GROUP BY topChamp
+HAVING COUNT(topChamp) > 0 AND topChamp != '' 
+order by countTop desc
 limit 5;
 
-select redTopChamp, count(redTopChamp) as RedTop_Favorito
-from matchinfo
-group by redTopChamp
-order by RedTop_Favorito DESC 
+SELECT  
+    JungleChamp as JungleFavorito,
+     COUNT(JungleChamp) AS countJungle
+FROM
+    (SELECT year, blueJungleChamp AS JungleChamp FROM matchinfo where year like '2015'
+     UNION ALL
+     SELECT year, redJungleChamp AS JungleChamp FROM matchinfo where year like '2015'
+    ) as redBlueJungle
+GROUP BY JungleChamp
+HAVING COUNT(JungleChamp) > 0 AND JungleChamp != '' 
+order by countJungle desc
 limit 5;
 
-select blueJungleChamp, count(blueJungleChamp) as BlueJungle_Favorito
-from matchinfo
-group by blueJungleChamp
-order by BlueJungle_Favorito DESC 
+SELECT  
+    MiddleChamp as MiddleFavorito,
+     COUNT(MiddleChamp) AS countMiddle
+FROM
+    (SELECT year, blueMiddleChamp AS MiddleChamp FROM matchinfo where year like '2015'
+     UNION ALL
+     SELECT year, redMiddleChamp AS MiddleChamp FROM matchinfo where year like '2015'
+    ) as redBlueMiddle
+GROUP BY MiddleChamp
+HAVING COUNT(MiddleChamp) > 0 AND MiddleChamp != '' 
+order by countMiddle desc
 limit 5;
 
-select redJungleChamp, count(redJungleChamp) as RedJungle_Favorito
-from matchinfo
-group by redJungleChamp
-order by RedJungle_Favorito DESC 
+SELECT  
+    ADCChamp as ADCFavorito,
+     COUNT(ADCChamp) AS countADC
+FROM
+    (SELECT year, blueADCChamp AS ADCChamp FROM matchinfo where year like '2015'
+     UNION ALL
+     SELECT year, redADCChamp AS ADCChamp FROM matchinfo where year like '2015'
+    ) as redBlueADC
+GROUP BY ADCChamp
+HAVING COUNT(ADCChamp) > 0 AND ADCChamp != '' 
+order by countADC desc
 limit 5;
 
-select blueMiddleChamp, count(blueMiddleChamp) as BlueMiddle_Favorito
-from matchinfo
-group by blueMiddleChamp
-order by BlueMiddle_Favorito DESC 
+SELECT  
+    SupportChamp as SupportFavorito,
+     COUNT(SupportChamp) AS countSupport
+FROM
+    (SELECT year, blueSupportChamp AS SupportChamp FROM matchinfo where year like '2015'
+     UNION ALL
+     SELECT year, redSupportChamp AS SupportChamp FROM matchinfo where year like '2015'
+    ) as redBlueSupport
+GROUP BY SupportChamp
+HAVING COUNT(SupportChamp) > 0 AND SupportChamp != '' 
+order by countSupport desc
 limit 5;
 
-select redMiddleChamp, count(redMiddleChamp) as RedMiddle_Favorito
-from matchinfo
-group by redMiddleChamp
-order by RedMiddle_Favorito DESC 
+-- Qual o top 5 dos personagens utilizado em cada posição em 2016?
+
+SELECT  
+    topChamp as topFavorito,
+     COUNT(topChamp) AS countTop
+FROM
+    (SELECT year, blueTopChamp AS topChamp FROM matchinfo where year like '2016'
+     UNION ALL
+     SELECT year, redTopChamp AS topChamp FROM matchinfo where year like '2016'
+    ) as redBlueTop
+GROUP BY topChamp
+HAVING COUNT(topChamp) > 0 AND topChamp != '' 
+order by countTop desc
 limit 5;
 
-select blueADCChamp, count(blueADCChamp) as BlueADC_Favorito
-from matchinfo
-group by blueADCChamp
-order by BlueADC_Favorito DESC 
+SELECT  
+    JungleChamp as JungleFavorito,
+     COUNT(JungleChamp) AS countJungle
+FROM
+    (SELECT year, blueJungleChamp AS JungleChamp FROM matchinfo where year like '2016'
+     UNION ALL
+     SELECT year, redJungleChamp AS JungleChamp FROM matchinfo where year like '2016'
+    ) as redBlueJungle
+GROUP BY JungleChamp
+HAVING COUNT(JungleChamp) > 0 AND JungleChamp != '' 
+order by countJungle desc
 limit 5;
 
-select redADCChamp, count(redADCChamp) as RedADC_Favorito
-from matchinfo
-group by redADCChamp
-order by RedADC_Favorito DESC 
+SELECT  
+    MiddleChamp as MiddleFavorito,
+     COUNT(MiddleChamp) AS countMiddle
+FROM
+    (SELECT year, blueMiddleChamp AS MiddleChamp FROM matchinfo where year like '2016'
+     UNION ALL
+     SELECT year, redMiddleChamp AS MiddleChamp FROM matchinfo where year like '2016'
+    ) as redBlueMiddle
+GROUP BY MiddleChamp
+HAVING COUNT(MiddleChamp) > 0 AND MiddleChamp != '' 
+order by countMiddle desc
 limit 5;
 
-select blueSupportChamp, count(blueSupportChamp) as BlueSupport_Favorito
-from matchinfo
-group by blueSupportChamp
-order by BlueSupport_Favorito DESC 
+SELECT  
+    ADCChamp as ADCFavorito,
+     COUNT(ADCChamp) AS countADC
+FROM
+    (SELECT year, blueADCChamp AS ADCChamp FROM matchinfo where year like '2016'
+     UNION ALL
+     SELECT year, redADCChamp AS ADCChamp FROM matchinfo where year like '2016'
+    ) as redBlueADC
+GROUP BY ADCChamp
+HAVING COUNT(ADCChamp) > 0 AND ADCChamp != '' 
+order by countADC desc
 limit 5;
 
-select redSupportChamp, count(redSupportChamp) as RedSupport_Favorito
-from matchinfo
-group by redSupportChamp
-order by RedSupport_Favorito DESC 
+SELECT  
+    SupportChamp as SupportFavorito,
+     COUNT(SupportChamp) AS countSupport
+FROM
+    (SELECT year, blueSupportChamp AS SupportChamp FROM matchinfo where year like '2016'
+     UNION ALL
+     SELECT year, redSupportChamp AS SupportChamp FROM matchinfo where year like '2016'
+    ) as redBlueSupport
+GROUP BY SupportChamp
+HAVING COUNT(SupportChamp) > 0 AND SupportChamp != '' 
+order by countSupport desc
+limit 5;
+
+-- Qual o top 5 dos personagens utilizado em cada posição em 2017?
+
+SELECT  
+    topChamp as topFavorito,
+     COUNT(topChamp) AS countTop
+FROM
+    (SELECT year, blueTopChamp AS topChamp FROM matchinfo where year like '2017'
+     UNION ALL
+     SELECT year, redTopChamp AS topChamp FROM matchinfo where year like '2017'
+    ) as redBlueTop
+GROUP BY topChamp
+HAVING COUNT(topChamp) > 0 AND topChamp != '' 
+order by countTop desc
+limit 5;
+
+SELECT  
+    JungleChamp as JungleFavorito,
+     COUNT(JungleChamp) AS countJungle
+FROM
+    (SELECT year, blueJungleChamp AS JungleChamp FROM matchinfo where year like '2017'
+     UNION ALL
+     SELECT year, redJungleChamp AS JungleChamp FROM matchinfo where year like '2017'
+    ) as redBlueJungle
+GROUP BY JungleChamp
+HAVING COUNT(JungleChamp) > 0 AND JungleChamp != '' 
+order by countJungle desc
+limit 5;
+
+SELECT  
+    MiddleChamp as MiddleFavorito,
+     COUNT(MiddleChamp) AS countMiddle
+FROM
+    (SELECT year, blueMiddleChamp AS MiddleChamp FROM matchinfo where year like '2017'
+     UNION ALL
+     SELECT year, redMiddleChamp AS MiddleChamp FROM matchinfo where year like '2017'
+    ) as redBlueMiddle
+GROUP BY MiddleChamp
+HAVING COUNT(MiddleChamp) > 0 AND MiddleChamp != '' 
+order by countMiddle desc
+limit 5;
+
+SELECT  
+    ADCChamp as ADCFavorito,
+     COUNT(ADCChamp) AS countADC
+FROM
+    (SELECT year, blueADCChamp AS ADCChamp FROM matchinfo where year like '2017'
+     UNION ALL
+     SELECT year, redADCChamp AS ADCChamp FROM matchinfo where year like '2017'
+    ) as redBlueADC
+GROUP BY ADCChamp
+HAVING COUNT(ADCChamp) > 0 AND ADCChamp != '' 
+order by countADC desc
+limit 5;
+
+SELECT  
+    SupportChamp as SupportFavorito,
+     COUNT(SupportChamp) AS countSupport
+FROM
+    (SELECT year, blueSupportChamp AS SupportChamp FROM matchinfo where year like '2017'
+     UNION ALL
+     SELECT year, redSupportChamp AS SupportChamp FROM matchinfo where year like '2017'
+    ) as redBlueSupport
+GROUP BY SupportChamp
+HAVING COUNT(SupportChamp) > 0 AND SupportChamp != '' 
+order by countSupport desc
 limit 5;
