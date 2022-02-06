@@ -1,5 +1,3 @@
-select * from kills;
-
 -- Os jogadores que mais efetuaram abates SOLO
 
 select killer, count(Killer) as Solou from kills
@@ -11,7 +9,7 @@ limit 10;
 -- Os jogadores que mais foram abatidos SOLO
 
 select victim, count(victim) as Solado from kills
-where Assist_1 like '' and killer not like '' and victim not like ''
+where victim not like 'None' and Assist_1 like '' and killer not like '' and victim not like ''
 group by victim
 order by Solado desc
 limit 10;
@@ -40,6 +38,7 @@ limit 10;
 -- Os jogadores que mais foram abatidos
 
 select victim, count(victim) as abatido from kills
+where victim not like 'None'
 group by victim
 order by abatido desc
 limit 10;
