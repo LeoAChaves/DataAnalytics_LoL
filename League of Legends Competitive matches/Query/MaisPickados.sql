@@ -31,5 +31,5 @@ on topchamp = champ.nome
 GROUP BY topChamp
 HAVING COUNT(topChamp) > 0 AND topChamp != '' 
 order by countTop desc
-limit 10
+limit 25
 ;

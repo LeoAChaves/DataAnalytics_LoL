@@ -13,4 +13,4 @@ FROM
 GROUP BY ban
 HAVING COUNT(ban) > 0 AND ban != '' 
 order by countBan desc
-limit 10;
+limit 25;
