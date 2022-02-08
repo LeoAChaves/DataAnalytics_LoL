@@ -1,4 +1,4 @@
--- Quais os campeões mais pickados em 2015?
+-- Quais os campeões mais pickados?
 
 SELECT  
 	topChamp as topFavorito,
@@ -6,103 +6,30 @@ SELECT
     champ.Classe_Secundaria,
      COUNT(topChamp) AS countTop
 FROM
-    (SELECT year, blueTopChamp AS topChamp FROM matchinfo where year like '2015'
+    (SELECT year, blueTopChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, redTopChamp AS topChamp FROM matchinfo where year like '2015'
+     SELECT year, redTopChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, blueJungleChamp AS JungleChamp FROM matchinfo where year like '2015'
+     SELECT year, blueJungleChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, redJungleChamp AS JungleChamp FROM matchinfo where year like '2015'
+     SELECT year, redJungleChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, blueMiddleChamp AS MiddleChamp FROM matchinfo where year like '2015'
+     SELECT year, blueMiddleChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, redMiddleChamp AS MiddleChamp FROM matchinfo where year like '2015'
+     SELECT year, redMiddleChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, blueADCChamp AS ADCChamp FROM matchinfo where year like '2015'
+     SELECT year, blueADCChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, redADCChamp AS ADCChamp FROM matchinfo where year like '2015'
+     SELECT year, redADCChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, blueSupportChamp AS SupportChamp FROM matchinfo where year like '2015'
+     SELECT year, blueSupportChamp AS topChamp FROM matchinfo
      UNION ALL
-     SELECT year, redSupportChamp AS SupportChamp FROM matchinfo where year like '2015'
+     SELECT year, redSupportChamp AS topChamp FROM matchinfo
     ) as redBlueTop
 inner join champions champ
 on topchamp = champ.nome
 GROUP BY topChamp
 HAVING COUNT(topChamp) > 0 AND topChamp != '' 
 order by countTop desc
-limit 10
-;
-
-
--- Quais os campeões mais pickados em 2016?
-
-SELECT  
-	topChamp as topFavorito,
-    champ.classe_primaria,
-    champ.Classe_Secundaria,
-     COUNT(topChamp) AS countTop
-FROM
-    (SELECT year, blueTopChamp AS topChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, redTopChamp AS topChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, blueJungleChamp AS JungleChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, redJungleChamp AS JungleChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, blueMiddleChamp AS MiddleChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, redMiddleChamp AS MiddleChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, blueADCChamp AS ADCChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, redADCChamp AS ADCChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, blueSupportChamp AS SupportChamp FROM matchinfo where year like '2016'
-     UNION ALL
-     SELECT year, redSupportChamp AS SupportChamp FROM matchinfo where year like '2016'
-    ) as redBlueTop
-inner join champions champ
-on topchamp = champ.nome
-GROUP BY topChamp
-HAVING COUNT(topChamp) > 0 AND topChamp != '' 
-order by countTop desc
-limit 10
-;
-
--- Quais os campeões mais pickados em 2017?
-
-SELECT  
-	topChamp as topFavorito,
-    champ.classe_primaria,
-    champ.Classe_Secundaria,
-     COUNT(topChamp) AS countTop
-FROM
-    (SELECT year, blueTopChamp AS topChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, redTopChamp AS topChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, blueJungleChamp AS JungleChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, redJungleChamp AS JungleChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, blueMiddleChamp AS MiddleChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, redMiddleChamp AS MiddleChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, blueADCChamp AS ADCChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, redADCChamp AS ADCChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, blueSupportChamp AS SupportChamp FROM matchinfo where year like '2017'
-     UNION ALL
-     SELECT year, redSupportChamp AS SupportChamp FROM matchinfo where year like '2017'
-    ) as redBlueTop
-inner join champions champ
-on topchamp = champ.nome
-GROUP BY topChamp
-HAVING COUNT(topChamp) > 0 AND topChamp != '' 
-order by countTop desc
-limit 10
+limit 25
 ;
