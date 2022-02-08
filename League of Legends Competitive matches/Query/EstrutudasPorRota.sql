@@ -1,5 +1,3 @@
-select * from structures;
-
 -- Estruturas derrubadas na rota do MID
 
 select lane, type, count(Type) derrubadas from structures
