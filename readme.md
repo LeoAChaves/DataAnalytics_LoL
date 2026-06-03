@@ -223,10 +223,6 @@ GROUP BY lane;
   </a>
 </div>
 
-## 📝 Licença
-
-Este projeto está sob a licença MIT.
-
 ---
 
 <div align="center">
